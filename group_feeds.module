@@ -1,0 +1,22 @@
+<?php
+
+include_once('group_feeds.features.inc');
+
+/*
+ * Implements http://api.drupal.org/api/drupal/developer%21hooks%21core.php/function/hook_theme/6
+ */
+function group_feeds_theme($existing) {
+	return array(
+		'views_view_field__group_feeds_for_panels__timestamp' => array (
+			'arguments' => array('view' => NULL, 'options' => NULL, 'row' => NULL),
+			'template' => 'views-view-field--group-feeds-for-panels--timestamp',
+			'original hook' => 'views_view_fields',
+			'path' => drupal_get_path('module', 'group_feeds') . '/theme',
+			'preprocess functions' => array(
+        'template_preprocess',
+      )
+		),
+	);
+}
+
+?>
